@@ -1,20 +1,52 @@
+* {
+    font-family:'Segoe UI', Verdana, sans-serif
+}
+
 #page-container {
     margin: 0 auto;
 }
 
 #grid-container {
-    width: 800px;
-    height: 800px;
+    height: 808px;
+    width: 808px;
     margin: 0 auto;
     display: flex;
-    flex: 200px;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-content: flex-start;
     background-color: black;
+    border: 1px solid black;
+}
+
+#popup-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 1em 2em;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid black;
+    cursor: pointer;
+    background-color: aliceblue;
+    transition: 0.5s;
+}
+
+#popup-button:hover {
+    background-color: aqua;
+    transition: 1ms;
 }
 
 .grid-item {
-    height: 200px;
-    width: 200px;
+    min-width: 48px;
+    min-height: 48px;
+    flex: 1;
     background-color: aliceblue;
+    border: 1px solid black;
+    transition: 2s;
+}
+
+.grid-item:hover {
+    background-color: aqua;
+    cursor: pointer;
+    transition: 1ms;
 }
