@@ -2,35 +2,37 @@ const pageContainer = document.createElement('div');
 pageContainer.setAttribute('id', 'page-container');
 document.body.appendChild(pageContainer);
 
-const popBtn = document.createElement('button');
-popBtn.setAttribute('id', 'popup-button');
-popBtn.textContent = 'Generate New Grid';
-pageContainer.appendChild(popBtn);
+const popupButton = document.createElement('button');
+popupButton.setAttribute('id', 'popup-button');
+popupButton.textContent = 'Generate New Grid';
+pageContainer.appendChild(popupButton);
 
 const gridContainer = document.createElement('div');
 gridContainer.setAttribute('id', 'grid-container');
 pageContainer.appendChild(gridContainer);
 
-for (let i = 0; i < 256; i++) {
-    gridContainer.insertAdjacentHTML('beforeend', `
-        <div class="grid-item"></div>
-    `);
+function makeGrid(size) {
+    gridContainer.innerHTML = '';
+    for (gridSize = 0; gridSize < size * size; gridSize++) {
+        let gridItem = document.createElement('div');
+        gridItem.setAttribute('class', 'grid-item');
+        gridContainer.appendChild(gridItem);
+        gridContainer.style.cssText = `grid-template: repeat(${size}, 1fr) / repeat(${size}, 1fr);`;
+    }
 }
 
-const gridItems = document.getElementsByClassName('grid-item');
+makeGrid(16);
+
+let userInput;
 
 function getUserInput() {
-    userInput = parseInt(window.prompt('How many squares per side do you want the new grid to be?', 'Value must be between 2 and 256'));
+    userInput = parseInt(window.prompt('How many squares per side do you want the new grid to be?', 'Value must be between 2 and 50'));
 }
 
-popBtn.addEventListener('click', () => {
+popupButton.addEventListener('click', () => {
     getUserInput();
-    if (userInput >= 2 && userInput <= 256) {
-        gridContainer.innerHTML = '';
-        for (let i = 0; i < userInput; i++) {
-            gridContainer.insertAdjacentHTML('beforeend', `
-                <div class="grid-item"></div>
-            `);
-        }
+    if (userInput >= 2 && userInput <= 50) {
+        size = userInput;
+        makeGrid(size);
     }
 });
