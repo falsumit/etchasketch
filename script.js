@@ -36,3 +36,11 @@ popupButton.addEventListener('click', () => {
         makeGrid(size);
     }
 });
+
+let gridChildren = gridContainer.getElementsByClassName('grid-item');
+
+for (let i = 0; i < gridChildren.length; i++) {
+    gridChildren[i].addEventListener('mouseover', (event) => {
+        event.target.style.cssText = 'background-color: black;';
+    });
+}
