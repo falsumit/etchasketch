@@ -1,5 +1,5 @@
 * {
-    font-family:'Segoe UI', Verdana, sans-serif
+    font-family: helvetica, arial, sans-serif;
 }
 
 body {
@@ -10,41 +10,55 @@ body {
     margin: 0 auto;
 }
 
-#grid-container {
-    height: 80vh;
+#buttons {
     width: 80vh;
-    margin: 0 auto;
-    display: grid;
-    grid-gap: 1px;
-}
-
-#popup-button {
-    display: block;
+    min-width: 500px;
     margin: 0 auto;
     margin-top: 40px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
     padding: 1em 2em;
     font-size: 16px;
     border: 0;
     cursor: pointer;
     color: white;
     background-color: rgb(72, 118, 243);
-    transition: 1s;
+    transition: 500ms;
 }
 
-#popup-button:hover {
+button:hover {
     background-color: rgb(58, 93, 189);
     transition: 1ms;
 }
 
-.grid-item {
+#pixel-grid {
+    height: 80vh;
+    width: 80vh;
+    min-width: 500px;
+    min-height: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1px;
+}
+
+.pixel {
     width: 1fr;
     height: 1fr;
     background-color: white;
     transition: 10s;
 }
-.grid-item:hover {
-    /* background-color: rgb(72, 118, 243); */
-    cursor: pointer;
+
+.pixel-color {
+    background-color: rgb(72, 118, 243);
     transition: 1ms;
+}
+
+.pixel:hover {
+    cursor: pointer;
 }
